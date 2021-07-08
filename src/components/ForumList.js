@@ -1,31 +1,29 @@
 import React from "react";
-import Forum from "./Forum";
 import PropTypes from "prop-types";
+import Forum from "./Forum";
 
-// remove const masterForumList = [ ... ]. We no longer want these.
-
-function ForumList(props) { // Add props as parameter.
+function ForumList(props) {
   return (
     <React.Fragment>
       <hr />
-      {props.forumList.map((forum) =>
+      {Object.values(props.forumList).map((forum) => (
         <Forum
           whenForumClicked={props.onForumSelection}
-          username={forum.username}
-          post={forum.post}
-          upvotes={forum.upvotes}
-          upvotes={forum.upvotes}
+          names={forum.names}
+          location={forum.location}
+          issue={forum.issue}
+          formattedWaitTime={forum.formattedWaitTime}
           id={forum.id}
-          key={forum.id} />
-      )}
+          key={forum.id}
+        />
+      ))}
     </React.Fragment>
   );
 }
 
 ForumList.propTypes = {
-  forumList: PropTypes.array,
-  onForumSelection: PropTypes.func
+  ForumList: PropTypes.object,
+  onForumSelection: PropTypes.func,
 };
-
 
 export default ForumList;
