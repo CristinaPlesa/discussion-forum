@@ -9,13 +9,14 @@ export const toggleForm = () => ({
   type: c.TOGGLE_FORM,
 });
 
-export const addForum = (ticket) => {
-  const { names, location, issue, id } = ticket;
+export const addForum = (forum) => {
+  const { username, post, upvote, downvote, id } = forum;
   return {
-    type: c.ADD_TICKET,
-    names: names,
-    location: location,
-    issue: issue,
+    type: c.ADD_FORUM,
+    username: username,
+    post: post,
+    upvote: upvote,
+    downvote: downvote,
     id: id,
   };
 };
